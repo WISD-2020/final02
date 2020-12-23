@@ -38,7 +38,7 @@ https://templatemo.com/tm-529-ramayana
             <!-- Header -->
             <header id="header">
               <div class="logo">
-                <a href="index.blade.php">Ramayana</a>
+                <a href="teacher.blade.php">Ramayana</a>
               </div>
             </header>
 
@@ -335,7 +335,7 @@ https://templatemo.com/tm-529-ramayana
             <!-- Menu -->
            <nav id="menu">
               <ul>
-                <li><a href="index.blade.php">Homepage</a></li>
+                <li><a href="teacher.blade.php">Homepage</a></li>
                 <li><a href="simple_page.blade.php">Simple Page</a></li>
                 <li><a href="shortcodes.blade.php">Shortcodes</a></li>
                 <li>

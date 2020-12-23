@@ -13,13 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/index', function () {
-    return view('index');
-})->name('teacher');
+//Route::get('/index', function () {
+//    return view('index');
+//})->name('index');
+//Route::get('/', function () {
+//    return view('teacher');
+//})->name('teacher');
 Route::get('/', function () {
-    return view('index');
+    return view('teacher');
 });
-
+//Route::middleware(['auth:sanctum', 'verified'])->get('/home',[\App\Http\Controllers\LoginController::class,'index'])->name('login');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/home', [\App\Http\Controllers\LoginController::class, 'index'])->name('user');
+Route::get('/home/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('user.logout');

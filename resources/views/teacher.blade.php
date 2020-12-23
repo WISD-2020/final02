@@ -12,7 +12,7 @@
               <!-- Header -->
               <header id="header">
                   <div class="logo">
-                      <a href="{{route('teacher')}}">學生點名系統</a>
+                      <a href="#">學生點名系統</a>
                   </div>
               </header>
             <!-- Top Image -->
@@ -24,7 +24,7 @@
                     <div class="down-content">
 
                         </br></br>
-                        <h1>aaa你好~</h1></br>
+                        <h1>{{$user->name}}你好~</h1></br>
                       <h2>個人資料</h2>
                       </br>
 
@@ -142,6 +142,7 @@
                 <li><a href="simple_page.blade.php">審核請假</a></li>
                 <li><a href="shortcodes.blade.php">課程出缺席狀況</a></li>
                 <li><a href="https://www.ncut.edu.tw/">學校首頁</a></li>
+                  <li><a href="{{route('user.logout')}}">登出</a></li>
               </ul>
             </nav>
               <!-- Featured Posts -->
