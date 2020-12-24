@@ -15,9 +15,7 @@ class CreateAttendsTable extends Migration
     {
         Schema::create('attends', function (Blueprint $table) {
             $table->string( 'student_id' );
-            $table->foreign ( 'student_id' )-> references ( 'id' )-> on ( 'students' )-> onDelete ( 'cascade' );
             $table->unsignedBigInteger( 'classes_id' );
-            $table->foreign ( 'classes_id' )-> references ( 'id' )-> on ( 'classes' )-> onDelete ( 'cascade' );
             $table->string( 'truant');
             $table->timestamps();
         });

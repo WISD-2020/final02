@@ -18,10 +18,10 @@ class CreateStudentsTable extends Migration
             $table->string('name');
             $table->string('sex');
             $table->string('faculty');
-            $table->string('password');
             $table->string('phone');
             $table->date('birth');
             $table->string('address');
+            $table->unsignedBigInteger( 'user_id' );
             $table->timestamps();
         });
     }

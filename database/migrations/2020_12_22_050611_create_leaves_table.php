@@ -16,9 +16,8 @@ class CreateLeavesTable extends Migration
         Schema::create('leaves', function (Blueprint $table) {
             $table->bigIncrements ('id');
             $table->string( 'student_id' );
-            $table->foreign ( 'student_id' )-> references ( 'id' )-> on ( 'students' )-> onDelete ( 'cascade' );
             $table->string( 'teacher_id' );
-            $table->foreign ( 'teacher_id' )-> references ( 'id' )-> on ( 'teachers' )-> onDelete ( 'cascade' );
+            $table->unsignedBigInteger( 'classes_id' );
             $table->string('reason');
             $table->string('type');
             $table->dateTime('leave_date');

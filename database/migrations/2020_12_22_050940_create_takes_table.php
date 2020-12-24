@@ -15,9 +15,7 @@ class CreateTakesTable extends Migration
     {
         Schema::create('takes', function (Blueprint $table) {
             $table->string( 'student_id' );
-            $table->foreign ( 'student_id' )-> references ( 'id' )-> on ( 'students' )-> onDelete ( 'cascade' );
             $table->unsignedBigInteger ( 'course_id' );
-            $table->foreign ( 'course_id' )-> references ( 'id' )-> on ( 'courses' )-> onDelete ( 'cascade' );
             $table->timestamps();
         });
     }
