@@ -17,6 +17,8 @@ class CreateClassesTable extends Migration
             $table->bigIncrements ('id');
             $table->unsignedBigInteger ( 'course_id' );
             $table->foreign ( 'course_id' )-> references ( 'id' )-> on ( 'courses' )-> onDelete ( 'cascade' );
+            $table->unsignedBigInteger( 'leave_id' );
+            $table->foreign ( 'leave_id' )-> references ( 'id' )-> on ( 'leaves' )-> onDelete ( 'cascade' );
             $table->date('date');
             $table->time('time');
             $table->timestamps();
