@@ -17,7 +17,7 @@ class CreateClassesTable extends Migration
             $table->bigIncrements ('id');
             $table->unsignedBigInteger ( 'course_id' );
             $table->date('date');
-            $table->time('time');
+            $table->string('time');
             $table->timestamps();
         });
     }
