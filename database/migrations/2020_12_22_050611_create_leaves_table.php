@@ -15,8 +15,8 @@ class CreateLeavesTable extends Migration
     {
         Schema::create('leaves', function (Blueprint $table) {
             $table->bigIncrements ('id');
-            $table->string( 'student_id' );
-            $table->string( 'teacher_id' );
+            $table->unsignedBigInteger( 'student_id' );
+            $table->unsignedBigInteger( 'teacher_id' );
             $table->unsignedBigInteger( 'classes_id' );
             $table->string('reason');
             $table->string('type');

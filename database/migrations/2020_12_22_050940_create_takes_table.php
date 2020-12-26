@@ -14,7 +14,7 @@ class CreateTakesTable extends Migration
     public function up()
     {
         Schema::create('takes', function (Blueprint $table) {
-            $table->string( 'student_id' );
+            $table->unsignedBigInteger( 'student_id' );
             $table->unsignedBigInteger ( 'course_id' );
             $table->timestamps();
         });

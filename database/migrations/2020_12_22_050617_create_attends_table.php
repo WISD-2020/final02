@@ -14,7 +14,7 @@ class CreateAttendsTable extends Migration
     public function up()
     {
         Schema::create('attends', function (Blueprint $table) {
-            $table->string( 'student_id' );
+            $table->unsignedBigInteger( 'student_id' );
             $table->unsignedBigInteger( 'classes_id' );
             $table->string( 'truant');
             $table->timestamps();

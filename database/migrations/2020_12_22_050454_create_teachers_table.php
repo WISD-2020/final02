@@ -14,7 +14,8 @@ class CreateTeachersTable extends Migration
     public function up()
     {
         Schema::create('teachers', function (Blueprint $table) {
-            $table->string ('id')->primary();
+            $table->bigIncrements ('id');
+            $table->string('teacher_id');
             $table->string('name');
             $table->unsignedBigInteger( 'user_id' );
             $table->timestamps();
