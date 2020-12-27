@@ -24,28 +24,26 @@
                     <div class="down-content">
 
                         </br></br>
-                        <h1>{{$user->name}}你好~</h1></br>
+                        <h1>{{$teacher->name}}你好~</h1></br>
                       <h2>個人資料</h2>
                       </br>
 
                           <TABLE CELLPADDING=2 border=4 BORDERCOLORLIGHT="#FFD0D0" BORDERCOLORDARK="#A425B1">
 
-                              <TR><TH>學號</TH><TD>001</TD><TH>性別</TH><TD>男
+                              <TR><TH>教師編號</TH><TD>{{$teacher->account}}</TD><TH>電子郵件</TH><TD>{{Auth::user()->email}}</TD>
                                  </TR>
-                              <TR><TH>姓名</TH><TD>李達夫
-                                  </TD><TH>系別</TH><TD>資訊管理系</TD></TR>
-                              <TR><TH>密碼</TH><TD>111
-                                  </TD><TH>連絡電話</TH><TD>041532548</TD></TR>
-                              <TR>
-                                  <TH COLSPAN=1>出生日期</TH>
-                                  <TD>1999/5/4</TD>
-                                  <TH COLSPAN=1>地址</TH>
-                                  <TD COLSPAN=1>北市南港路三段50巷號7號5F</TD>
-                              </TR>
+{{--                              <TR><TH>姓名</TH><TD>李達夫--}}
+{{--                                  </TD><TH>系別</TH><TD>資訊管理系</TD></TR>--}}
+{{--                              <TR><TH>密碼</TH><TD>111--}}
+{{--                                  </TD><TH>連絡電話</TH><TD>041532548</TD></TR>--}}
+{{--                              <TR>--}}
+{{--                                  <TH COLSPAN=1>出生日期</TH>--}}
+{{--                                  <TD>1999/5/4</TD>--}}
+{{--                                  <TH COLSPAN=1>地址</TH>--}}
+{{--                                  <TD COLSPAN=1>北市南港路三段50巷號7號5F</TD>--}}
+{{--                              </TR>--}}
                           </TABLE>
-
                         <!-- 顯示在瀏覽器上的文字 -->
-
                     </div>
                   </div>
                 </div>
@@ -64,60 +62,342 @@
                   </tr>
                   <tr>
                       <td>第一節</td>
-                      <td>通識教育</td>
-                      <td>  </td>
-                      <td>  </td>
-                      <td>微積分</td>
-                      <td>線性代數</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                          @if($class->time=='1-1')
+                                  {{$class->course->name}}</br>
+                                      老師:{{$class->course->teacher->name}}</br>
+                              地點:{{$class->course->location}}
+                                  @endif
+                                      @endforeach
+                          @endforeach
+                      </td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='2-1')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach  </td>
+                      <td> @foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='3-1')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach </td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='4-1')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='5-1')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
                   </tr>
                   <tr>
                       <td>第二節</td>
-                      <td>通識教育</td>
-                      <td>離散數學</td>
-                      <td>英文(一)</td>
-                      <td>微積分</td>
-                      <td>線性代數</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='1-2')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='2-2')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='3-2')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='4-2')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='5-2')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
                   </tr>
                   <tr>
                       <td>第三節</td>
-                      <td></td>
-                      <td>離散數學</td>
-                      <td>英文(一)</td>
-                      <td>微積分</td>
-                      <td>線性代數</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='1-3')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='2-3')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='3-3')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='4-3')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='5-3')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
                   </tr>
                   <tr>
                       <td>第四節</td>
-                      <td> </td>
-                      <td>體育(一)</td>
-                      <td>計算機概論</td>
-                      <td>數位邏輯設計</td>
-                      <td></td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='1-4')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach </td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='2-4')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='3-4')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='4-4')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='5-4')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
                   </tr>
                   <tr>
                       <td>第五節</td>
-                      <td></td>
-                      <td>體育(一)</td>
-                      <td>計算機概論</td>
-                      <td>數位邏輯設計</td>
-                      <td></td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='1-5')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='2-5')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='3-5')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='4-5')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='5-5')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
                   </tr>
                   <tr>
                       <td>第六節</td>
-                      <td></td>
-                      <td></td>
-                      <td>計算機概論</td>
-                      <td>數位邏輯設計</td>
-                      <td>韻律教學法</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='1-6')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='2-6')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='3-6')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='4-6')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
+                      <td>@foreach($courses as $course)
+                              @foreach($course->classes as $class)
+                                  @if($class->time=='5-6')
+                          {{$class->course->name}}</br>
+                          老師:{{$class->course->teacher->name}}</br>
+                          地點:{{$class->course->location}}
+                                  @endif
+                              @endforeach
+                          @endforeach</td>
                   </tr>
                   <td>第七節</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>韻律教學法</td>
+                  <td>@foreach($courses as $course)
+                          @foreach($course->classes as $class)
+                              @if($class->time=='1-7')
+                      {{$class->course->name}}</br>
+                      老師:{{$class->course->teacher->name}}</br>
+                      地點:{{$class->course->location}}
+                              @endif
+                          @endforeach
+                      @endforeach</td>
+                  <td>@foreach($courses as $course)
+                          @foreach($course->classes as $class)
+                              @if($class->time=='2-7')
+                      {{$class->course->name}}</br>
+                      老師:{{$class->course->teacher->name}}</br>
+                      地點:{{$class->course->location}}
+                              @endif
+                          @endforeach
+                      @endforeach</td>
+                  <td>@foreach($courses as $course)
+                          @foreach($course->classes as $class)
+                              @if($class->time=='3-7')
+                      {{$class->course->name}}</br>
+                      老師:{{$class->course->teacher->name}}</br>
+                      地點:{{$class->course->location}}
+                              @endif
+                          @endforeach
+                      @endforeach</td>
+                  <td>@foreach($courses as $course)
+                          @foreach($course->classes as $class)
+                              @if($class->time=='4-7')
+                      {{$class->course->name}}</br>
+                      老師:{{$class->course->teacher->name}}</br>
+                      地點:{{$class->course->location}}
+                              @endif
+                          @endforeach
+                      @endforeach</td>
+                  <td>@foreach($courses as $course)
+                          @foreach($course->classes as $class)
+                              @if($class->time=='5-7')
+                      {{$class->course->name}}</br>
+                      老師:{{$class->course->teacher->name}}</br>
+                      地點:{{$class->course->location}}
+                              @endif
+                          @endforeach
+                      @endforeach</td>
                   </tr>
-                  <tr>
+
+
               </table>
 
 

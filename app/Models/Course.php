@@ -9,7 +9,7 @@ class Course extends Model
 {
     use HasFactory;
 
-    protected $table = 'students';
+
 
     public function takes()
     {

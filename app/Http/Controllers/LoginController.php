@@ -10,18 +10,15 @@ class LoginController extends Controller
     public function index()
     {
         //
-        $teacher=Auth::user()->teachers;
-        if(  isset($teacher)  ){
+   $user=Auth::user();
+    if($user->type=='1'){
+       $teacher=$user->teachers;
+       $courses=$teacher->courses;
         return view('teacher',[
             'teacher' => $teacher,
-
-        ]);}
-        $student=Auth::user()->students;
-        if(  isset($student)  ){
-            return view('teacher',[
-                'student' => $student,
-
-            ]);}
+            'courses' => $courses,
+        ]);
+       }
    }
     public function logout()
     {
