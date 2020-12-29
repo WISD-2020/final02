@@ -10,7 +10,7 @@ class LoginController extends Controller
     public function index()
     {
         //
-   $user=Auth::user();
+    $user=Auth::user();
     if($user->type=='1'){
        $teacher=$user->teachers;
        $courses=$teacher->courses;
@@ -19,6 +19,14 @@ class LoginController extends Controller
             'courses' => $courses,
         ]);
        }
+    else{
+        $student=$user->students;
+        $takes=$student->takes;
+        return view('student',[
+            'student' => $student,
+            'takes' => $takes,
+        ]);
+    }
    }
     public function logout()
     {
@@ -27,4 +35,8 @@ class LoginController extends Controller
         return redirect('login');
     }
 
+    public function record()
+    {
+        return view('shortcodes');
+    }
 }
