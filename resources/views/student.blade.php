@@ -59,6 +59,11 @@
                         </div>
                     </div>
                 </section>
+{{--            @foreach($takes as $take)--}}
+{{--            @foreach($take->course->classes as $class)--}}
+{{--                {{$class->time}}--}}
+{{--            @endforeach--}}
+{{--            @endforeach--}}
                 <!-- 顯示在瀏覽器上的文字 -->
                 <table BORDER="2" align=center>
                     <h1>課表</h1>
@@ -73,7 +78,7 @@
                     <tr>
                         <td>第一節</td>
                         <td>@foreach($takes as $take)
-                            @foreach($take->courses as $course)
+                            @foreach($take->course as $course)
                             @foreach($course->classes as $class)
                             @if($class->time=='1-1')
                             {{$class->course->name}}</br>
@@ -500,7 +505,7 @@
                     <ul>
                         <li><a href="index">點名</a></li>
                         <li><a href="simple_page.blade.php">審核請假</a></li>
-                        <li><a href="shortcodes.blade.php">課程出缺席狀況</a></li>
+                        <li><a href="teacher_record.blade.php">課程出缺席狀況</a></li>
                         <li><a href="https://www.ncut.edu.tw/">學校首頁</a></li>
                         <li><a href="{{route('user.logout')}}">登出</a></li>
                     </ul>

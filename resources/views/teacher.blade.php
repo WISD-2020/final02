@@ -420,7 +420,7 @@
               <ul>
                 <li><a href="index">點名</a></li>
                 <li><a href="simple_page">審核請假</a></li>
-                <li><a href="record">課程出缺席狀況</a></li>
+                <li><a href="teacher/record">課程出缺席狀況</a></li>
                 <li><a href="https://www.ncut.edu.tw/">學校首頁</a></li>
                   <li><a href="{{route('user.logout')}}">登出</a></li>
               </ul>

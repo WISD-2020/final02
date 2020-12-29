@@ -186,7 +186,7 @@ https://templatemo.com/tm-529-ramayana
               <ul>
                 <li><a href="teacher.blade.php">Homepage</a></li>
                 <li><a href="simple_page.blade.php">Simple Page</a></li>
-                <li><a href="shortcodes.blade.php">Shortcodes</a></li>
+                <li><a href="teacher_record.blade.php">Shortcodes</a></li>
                 <li>
                   <span class="opener">Dropdown One</span>
                   <ul>

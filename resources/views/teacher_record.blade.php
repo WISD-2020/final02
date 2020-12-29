@@ -1,31 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.master')
 
-  <head>
+@section('title','點名紀錄')
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
-
-    <title>Ramayana - HTML5 Template</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-<!--
-Ramayana CSS Template
-https://templatemo.com/tm-529-ramayana
--->
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-style.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-
-  </head>
-
+@section('content')
 <body class="is-preload">
 
     <!-- Wrapper -->
@@ -38,7 +15,7 @@ https://templatemo.com/tm-529-ramayana
             <!-- Header -->
             <header id="header">
               <div class="logo">
-                <a href="teacher.blade.php">Ramayana</a>
+                <a href="/home">學生點名系統</a>
               </div>
             </header>
 
@@ -47,8 +24,17 @@ https://templatemo.com/tm-529-ramayana
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-12">
-                    <h1>Shortcodes Page</h1>
-                    <p><strong>Ramayana</strong> is free Bootstrap 4 CSS template from templatemo website. You can feel free to use it. Donec mattis tincidunt ipsum vel efficitur. Aliquam aliquam interdum rhoncus. Nam nec condimentum dolor, et pharetra nisi. In feugiat felis nec erat eleifend condimentum. Aliquam egestas convallis eros sed gravida. Curabitur consequat sit amet neque ac ornare.</p>
+                      <h1>學生出席紀錄查詢</h1></br></br>
+                      <form action="teacher/record/search" method="GET">
+                          <font size="5">課堂:
+                          <select name="Course">
+                              @foreach($courses as $course)
+                              　<option value="{{$course->id}}">{{$course->name}}</option>
+                              @endforeach
+                          </select>
+                          <button type="submit">查詢</button></font>
+                      </form>
+{{--                    <p><strong>Ramayana</strong> is free Bootstrap 4 CSS template from templatemo website..</p>--}}
                   </div>
                 </div>
               </div>
@@ -330,34 +316,22 @@ https://templatemo.com/tm-529-ramayana
           <div class="inner">
 
             <!-- Search Box -->
-           <font color="white" size="5">歡迎asdasdsaasd</font>
+              <section id="search" class="alt">
+                  <form method="get" action="#">
+                      <input type="text" name="search" id="search" placeholder="Search..." />
+                  </form>
+              </section>
 
             <!-- Menu -->
-           <nav id="menu">
-              <ul>
-                <li><a href="teacher.blade.php">Homepage</a></li>
-                <li><a href="simple_page.blade.php">Simple Page</a></li>
-                <li><a href="shortcodes.blade.php">Shortcodes</a></li>
-                <li>
-                  <span class="opener">Dropdown One</span>
+              <nav id="menu">
                   <ul>
-                    <li><a href="#">First Sub Menu</a></li>
-                    <li><a href="#">Second Sub Menu</a></li>
-                    <li><a href="#">Third Sub Menu</a></li>
+                      <li><a href="/home">課表</a></li>
+                      <li><a href="simple_page">審核請假</a></li>
+                      <li><a href="teacher/record">課程出缺席狀況</a></li>
+                      <li><a href="https://www.ncut.edu.tw/">學校首頁</a></li>
+                      <li><a href="{{route('user.logout')}}">登出</a></li>
                   </ul>
-                </li>
-                <li>
-                  <span class="opener">Dropdown Two</span>
-                  <ul>
-                    <li><a href="#">Sub Menu #1</a></li>
-                    <li><a href="#">Sub Menu #2</a></li>
-                    <li><a href="#">Sub Menu #3</a></li>
-                  </ul>
-                </li>
-                <li><a href="https://www.google.com">External Link</a></li>
-              </ul>
-            </nav>
-
+              </nav>
             <!-- Featured Posts -->
             <div class="featured-posts">
               <div class="heading">
@@ -366,19 +340,19 @@ https://templatemo.com/tm-529-ramayana
               <div class="owl-carousel owl-theme">
                 <a href="#">
                   <div class="featured-item">
-                    <img src="assets/images/featured_post_01.jpg" alt="featured one">
+                    <img src="{{asset('images/featured_post_01.jpg')}}" alt="featured one">
                     <p>Aliquam egestas convallis eros sed gravida. Curabitur consequat sit.</p>
                   </div>
                 </a>
                 <a href="#">
                   <div class="featured-item">
-                    <img src="assets/images/featured_post_01.jpg" alt="featured two">
+                    <img src="{{asset('images/featured_post_01.jpg')}}" alt="featured two">
                     <p>Donec a scelerisque massa. Aliquam non iaculis quam. Duis arcu turpis.</p>
                   </div>
                 </a>
                 <a href="#">
                   <div class="featured-item">
-                    <img src="assets/images/featured_post_01.jpg" alt="featured three">
+                    <img src="{{asset('images/featured_post_01.jpg')}}" alt="featured three">
                     <p>Suspendisse ac convallis urna, vitae luctus ante. Donec sit amet.</p>
                   </div>
                 </a>
@@ -395,20 +369,8 @@ https://templatemo.com/tm-529-ramayana
         </div>
 
     </div>
-
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/transition.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/custom.js"></script>
 </body>
+@endsection
 
 
-  </body>
 
-</html>
