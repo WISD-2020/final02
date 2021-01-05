@@ -68,8 +68,10 @@
                                   {{$class->course->name}}</br>
                               老師:{{$class->course->teacher->name}}</br>
                               地點:{{$class->course->location}}
+                          @break
                                   @endif
                               @endforeach
+                         @break
                           @endforeach
                       </td>
                       <td>@foreach($courses as $course)
@@ -418,8 +420,8 @@
             <!-- Menu -->
             <nav id="menu">
               <ul>
-                <li><a href="index">點名</a></li>
-                <li><a href="simple_page">審核請假</a></li>
+                <li><a href="/home">課表</a></li>
+                <li><a href="teacher/leave">審核請假</a></li>
                 <li><a href="teacher/record">課程出缺席狀況</a></li>
                 <li><a href="https://www.ncut.edu.tw/">學校首頁</a></li>
                   <li><a href="{{route('user.logout')}}">登出</a></li>

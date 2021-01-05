@@ -9,6 +9,10 @@ class Leave extends Model
 {
     use HasFactory;
 
+    /**
+     * @var mixed
+     */
+
     public function student()
     {
         return $this->belongsTo(Student::class);

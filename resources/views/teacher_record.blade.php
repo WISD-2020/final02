@@ -18,16 +18,20 @@
                 <a href="/home">學生點名系統</a>
               </div>
             </header>
-
+           @if(!isset($id))
+           <?php $id=1 ?>
+            @endif
             <!-- Page Heading -->
             <div class="page-heading">
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-12">
                       <h1>學生出席紀錄查詢</h1></br></br>
-                      <form action="teacher/record/search" method="GET">
+                      <form action="{{route('teacher.record.show', ['id'=>$id])}}" method="GET">
+                          {{ csrf_field() }}
                           <font size="5">課堂:
-                          <select name="Course">
+                          <select name="course">
+                              <option value="" disabled selected hidden>請選擇課程</option>
                               @foreach($courses as $course)
                               　<option value="{{$course->id}}">{{$course->name}}</option>
                               @endforeach
@@ -40,6 +44,10 @@
               </div>
             </div>
 
+
+          @if (isset($classes))
+             <?php $i=0 ; ?>
+             <?php $k=0 ; ?>
             <!-- Tables -->
             <section class="tables">
               <div class="container-fluid">
@@ -52,264 +60,85 @@
                       <table>
                         <thead>
                           <tr>
-                            <th>Product no.</th>
-                            <th>Description</th>
-                            <th>Price</th>
+                              <th>姓名</th>
+                            <th>日期</th>
+                            <th>課程</th>
+                            <th>星期-節次</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>#1011</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>$20.50</td>
+                         @foreach($classes as $class)
+                             @foreach($class->attends as $attend)
+                                 @if($attend->truant=='曠課')
+                             <?php $i=$i+1; ?>
+                             @if($i>=(($id-1)*2+1))
+                                 <?php $k=$k+1;?>
+                              @if($k<=2)
+                           <tr>
+                            <td>{{$attend->student->name}}</td>
+                            <td>{{$attend->classes->date}}</td>
+                              <td>{{$attend->classes->course->name}}</td>
+                              <td>{{$attend->classes->time}}</td>
+                              <td>{{$attend->truant}}</td>
                           </tr>
-                          <tr>
-                            <td>#1012</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>$20.50</td>
-                          </tr>
-                          <tr>
-                            <td>#1013</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>$20.50</td>
-                          </tr>
-                          <tr>
-                            <td>#1014</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>$20.50</td>
-                          </tr>
-                          <tr>
-                            <td>#1015</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>$20.50</td>
-                          </tr>
+                              @endif
+                           @endif
+                                 @endif
+                        @endforeach
+                         @endforeach
                         </tbody>
                       </table>
+                        <?php  $i=ceil($i/2); ?>
                       <ul class="table-pagination">
-                        <li><a href="#">Previous</a></li>
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">...</a></li>
-                        <li><a href="#">8</a></li>
-                        <li><a href="#">9</a></li>
-                        <li><a href="#">Next</a></li>
+                          @if($id-1>=1)
+                        <li><a href="{{route('teacher.record.show', ['id'=>$id-1])}}">前一頁</a></li>
+                          @endif
+                              @if($id-1<1)
+                                  <li><a href="{{route('teacher.record.show', ['id'=>1])}}">前一頁</a></li>
+                              @endif
+                 @for($j=1;$j<=$i;$j++)
+                              <li><a href="{{route('teacher.record.show', ['id'=>$j])}}">{{$j}}</a></li>
+                          @endfor
+                              @if($id+1<=$i)
+                        <li><a href="{{route('teacher.record.show', ['id'=>$id+1])}}">下一頁</a></li>
+                              @endif
+                              @if($id+1>$i)
+                                  <li><a href="{{route('teacher.record.show', ['id'=>$i])}}">下一頁</a></li>
+                              @endif
                       </ul>
                     </div>
-                    <div class="alternate-table">
-                      <table>
-                        <thead>
-                          <tr>
-                            <th>Product no.</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>#2005</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>$19.95</td>
-                          </tr>
-                          <tr>
-                            <td>#2006</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>$19.95</td>
-                          </tr>
-                          <tr>
-                            <td>#2007</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>$19.95</td>
-                          </tr>
-                          <tr>
-                            <td>#2008</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>$19.95</td>
-                          </tr>
-                          <tr>
-                            <td>#2008</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>$19.95</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <ul class="table-pagination">
-                        <li><a href="#">Previous</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">...</a></li>
-                        <li class="active"><a href="#">8</a></li>
-                        <li><a href="#">9</a></li>
-                        <li><a href="#">Next</a></li>
-                      </ul>
-                    </div>
+
                   </div>
                 </div>
               </div>
-            </section>
-
-            <!-- Forms -->
-            <section class="forms">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="section-heading">
-                      <h2>Forms</h2>
-                    </div>
-                    <form id="contact" action="" method="post">
-                      <div class="row">
-                        <div class="col-md-6">
-                          <fieldset>
-                            <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
-                          </fieldset>
-                        </div>
-                        <div class="col-md-6">
-                          <fieldset>
-                            <input name="email" type="text" class="form-control" id="email" placeholder="Your email..." required="">
-                          </fieldset>
-                        </div>
-                        <div class="col-md-12">
-                          <select name="category" id="category">
-                            <option value="categories" selected>Select Category</option>
-                            <option value="Featured">General</option>
-                            <option value="Newest">Specific</option>
-                            <option value="Low Price">Technical</option>
-                            <option value="High Price">Application</option>
-                          </select>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                          <div class="radio-item">
-                            <input name="demo-small" type="checkbox" id="demo-priority-small" value="small">
-                            <label for="demo-priority-small">Small</label>
-                          </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                          <div class="radio-item">
-                            <input name="demo-medium" type="checkbox" id="demo-priority-medium" value="medium">
-                            <label for="demo-priority-medium">Medium</label>
-                          </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                          <div class="radio-item">
-                            <input name="demo-large" type="checkbox" id="demo-priority-large" value="large" >
-                            <label for="demo-priority-large">Large</label>
-                          </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                          <div class="circle-item">
-                            <input name="demo-priority" type="radio" id="demo-small" value="16-20" checked>
-                            <label for="demo-small">Age: 16 - 20</label>
-                          </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                          <div class="circle-item">
-                            <input name="demo-priority" type="radio" id="demo-medium" value="21-30">
-                            <label for="demo-medium">Age: 21 - 30</label>
-                          </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                          <div class="circle-item">
-                            <input name="demo-priority" type="radio" id="demo-old" value="30+">
-                            <label for="demo-old">Age: 30+</label>
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-                        </div>
-                        <div class="col-md-12">
-                          <button type="submit" id="form-submit" class="button">Send Message</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-
-            <!-- Tables -->
-            <section class="buttons">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="section-heading">
-                      <h2>Buttons</h2>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-sm-12">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="filled-rectangle-button">
-                          <a href="#">Filled Button</a>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="border-rectangle-button">
-                          <a href="#">Border Button</a>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="filled-radius-button">
-                          <a href="#">Filled Button</a>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="border-radius-button">
-                          <a href="#">Border Button</a>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="filled-rounded-button">
-                          <a href="#">Filled Button</a>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="border-rounded-button">
-                          <a href="#">Border Button</a>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="filled-icon-button">
-                          <a href="#"><i class="fa fa-check"></i>Filled Button</a>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="border-icon-button">
-                          <a href="#"><i class="fa fa-check"></i>Border Button</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-sm-12">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="filled-rectangle-button">
-                          <a href="#">Filled Button</a>
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="border-rectangle-button">
-                          <a href="#">Border Button</a>
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="filled-rounded-button">
-                          <a href="#">Filled Button</a>
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="border-rounded-button">
-                          <a href="#">Border Button</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
+            </section></br>
+              @endif
+              @if (isset($classes))
+                  <h2>請假</h2></br>
+                  <table>
+                      <tr>
+                          <th>姓名</th>
+                          <th>日期</th>
+                          <th>課程</th>
+                          <th>星期-節次</th>
+                      </tr>
+                      @foreach($classes as $class)
+                          @foreach($class->attends as $attend)
+                              @if($attend->truant!='曠課')
+                                  <tr>
+                                      <td>{{$attend->student->name}}</td>
+                                      <td>{{$attend->classes->date}}</td>
+                                      <td>{{$attend->classes->course->name}}</td>
+                                      <td>{{$attend->classes->time}}</td>
+                                      <td>{{$attend->truant}}</td>
+                                  </tr>
+                              @endif
+                          @endforeach
+                      @endforeach
+                  </table>
+              @endif
           </div>
         </div>
-
       <!-- Sidebar -->
         <div id="sidebar">
 
@@ -326,8 +155,8 @@
               <nav id="menu">
                   <ul>
                       <li><a href="/home">課表</a></li>
-                      <li><a href="simple_page">審核請假</a></li>
-                      <li><a href="teacher/record">課程出缺席狀況</a></li>
+                      <li><a href="{{route('teacher.leave')}}">審核請假</a></li>
+                      <li><a href="{{route('teacher.record')}}">課程出缺席狀況</a></li>
                       <li><a href="https://www.ncut.edu.tw/">學校首頁</a></li>
                       <li><a href="{{route('user.logout')}}">登出</a></li>
                   </ul>
