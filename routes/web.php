@@ -25,9 +25,10 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->get('teacher/record', [\App\Http\Controllers\TeacherController::class, 'record'])->name('teacher.record');
 Route::middleware(['auth:sanctum', 'verified'])->get('teacher/leave', [\App\Http\Controllers\TeacherController::class, 'leave'])->name('teacher.leave');
-Route::middleware(['auth:sanctum', 'verified'])->get('teacher/leave/pass/{leave}',[\App\Http\Controllers\TeacherController::class,'pass'])->name('teacher.leave.pass');
-Route::middleware(['auth:sanctum', 'verified'])->get('teacher/leave/fail/{leave}',[\App\Http\Controllers\TeacherController::class,'fail'])->name('teacher.leave.fail');
-Route::middleware(['auth:sanctum', 'verified'])->get('teacher/record/search/{id}',[\App\Http\Controllers\TeacherController::class, 'record_show'])->name('teacher.record.show');
+Route::middleware(['auth:sanctum', 'verified'])->get('teacher/leave/pass/{leave}', [\App\Http\Controllers\TeacherController::class, 'pass'])->name('teacher.leave.pass');
+Route::middleware(['auth:sanctum', 'verified'])->get('teacher/leave/fail/{leave}', [\App\Http\Controllers\TeacherController::class, 'fail'])->name('teacher.leave.fail');
+Route::middleware(['auth:sanctum', 'verified'])->get('teacher/record/search/{id}', [\App\Http\Controllers\TeacherController::class, 'record_show'])->name('teacher.record.show');
+Route::middleware(['auth:sanctum', 'verified'])->get('student/leave', [\App\Http\Controllers\StudentController::class, 'leave'])->name('student.leave');
 //Route::middleware(['auth:sanctum', 'verified'])->get('/home',[\App\Http\Controllers\LoginController::class,'index'])->name('login');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

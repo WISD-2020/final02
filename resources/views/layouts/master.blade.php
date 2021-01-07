@@ -38,5 +38,4 @@
 <script src="{{asset('js/transition.js')}}"></script>
 <script src="{{asset('js/owl-carousel.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
-
 </html>

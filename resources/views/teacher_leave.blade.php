@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','審核請假    ')
+@section('title','審核請假')
 
 @section('content')
     <body class="is-preload">
@@ -26,7 +26,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <h1>學生申請請假</h1></br></br>
+                                <h1>審核學生請假</h1></br></br>
 
                                 {{--                    <p><strong>Ramayana</strong> is free Bootstrap 4 CSS template from templatemo website..</p>--}}
                             </div>

@@ -434,7 +434,7 @@
                 <nav id="menu">
                     <ul>
                         <li><a href="index">點名</a></li>
-                        <li><a href="teacher_leave.blade.php">審核請假</a></li>
+                        <li><a href="student/leave">申請請假</a></li>
                         <li><a href="teacher_record.blade.php">課程出缺席狀況</a></li>
                         <li><a href="https://www.ncut.edu.tw/">學校首頁</a></li>
                         <li><a href="{{route('user.logout')}}">登出</a></li>

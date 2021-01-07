@@ -19,12 +19,13 @@ class TeacherController extends Controller
             'courses' => $courses,
         ]);
     }
+
     public function leave()
     {
-        $leaves=Auth::user()->teachers->leaves;
- return view('teacher_leave',[
-     'leaves' => $leaves,
- ]);
+        $leaves = Auth::user()->teachers->leaves;
+        return view('teacher_leave', [
+            'leaves' => $leaves,
+        ]);
     }
     public function record_show(Request $request,$id)
     {
