@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Attend extends Model
 {
     use HasFactory;
-    protected $primaryKey = null;
+
+    public $timestamps = false;
     public function student()
     {
         return $this->belongsTo(Student::class);

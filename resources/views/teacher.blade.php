@@ -50,6 +50,10 @@
               </div>
             </section>
               <!-- 顯示在瀏覽器上的文字 -->
+              <section class="top-image">
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-md-12">
               <table BORDER="2" align=center>
                   <h1>課表</h1>
                   <tr>
@@ -68,6 +72,7 @@
                                   {{$class->course->name}}</br>
                               老師:{{$class->course->teacher->name}}</br>
                               地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                           @break
                                   @endif
                               @endforeach
@@ -80,6 +85,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach  </td>
@@ -89,6 +95,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach </td>
@@ -98,6 +105,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -107,6 +115,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -119,6 +128,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -128,6 +138,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -137,6 +148,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -146,6 +158,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -155,6 +168,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -167,6 +181,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -176,6 +191,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -185,6 +201,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -194,6 +211,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -203,6 +221,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -215,6 +234,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach </td>
@@ -224,6 +244,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -233,6 +254,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -242,6 +264,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -251,6 +274,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -263,6 +287,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -272,6 +297,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -281,6 +307,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -290,6 +317,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -299,6 +327,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -311,6 +340,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -320,6 +350,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -329,6 +360,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -338,6 +370,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -347,6 +380,7 @@
                           {{$class->course->name}}</br>
                           老師:{{$class->course->teacher->name}}</br>
                           地點:{{$class->course->location}}
+                          <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                                   @endif
                               @endforeach
                           @endforeach</td>
@@ -358,6 +392,7 @@
                       {{$class->course->name}}</br>
                       老師:{{$class->course->teacher->name}}</br>
                       地點:{{$class->course->location}}
+                      <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                               @endif
                           @endforeach
                       @endforeach</td>
@@ -367,6 +402,7 @@
                       {{$class->course->name}}</br>
                       老師:{{$class->course->teacher->name}}</br>
                       地點:{{$class->course->location}}
+                      <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                               @endif
                           @endforeach
                       @endforeach</td>
@@ -376,6 +412,7 @@
                       {{$class->course->name}}</br>
                       老師:{{$class->course->teacher->name}}</br>
                       地點:{{$class->course->location}}
+                      <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                               @endif
                           @endforeach
                       @endforeach</td>
@@ -385,6 +422,7 @@
                       {{$class->course->name}}</br>
                       老師:{{$class->course->teacher->name}}</br>
                       地點:{{$class->course->location}}
+                      <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                               @endif
                           @endforeach
                       @endforeach</td>
@@ -394,17 +432,19 @@
                       {{$class->course->name}}</br>
                       老師:{{$class->course->teacher->name}}</br>
                       地點:{{$class->course->location}}
+                      <a href="{{route('teacher.attend',['time'=>$class->time,'course'=>$class->course->name])}}">點名</a>
                               @endif
                           @endforeach
                       @endforeach</td>
                   </tr>
-
-
               </table>
-
-
+                          </div>
+                      </div>
+                  </div>
+                  </section>
           </div>
-        </div>
+          </div>
+
       <!-- Sidbar -->
         <div id="sidebar">
 
