@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attend;
+use App\Models\Classes;
+use App\Models\Course;
 use App\Models\Leave;
 use BaconQrCode\Common\ReedSolomonCodec;
 use Illuminate\Http\Request;
@@ -18,6 +20,21 @@ class TeacherController extends Controller
         return view('teacher_record',[
             'courses' => $courses,
         ]);
+    }
+
+                           //要跟前面route對齊
+    public function attend($course,$time)
+    {
+        $course=Auth::user()->teachers->courses->where('name','=',$course)->first();
+      $class=$course->classes->where('time','=',$time)->where('date','=',date("Y-m-d"))->first();
+    foreach ($course->takes as $take){
+        $attend=new Attend;
+     $attend->student_id= $take->student->id;
+     $attend->classes_id=$class->id;
+     $attend->truant='曠課';
+     $attend->save();
+    }
+        return  redirect (route('user'));
     }
 
     public function leave()

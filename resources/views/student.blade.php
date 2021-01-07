@@ -59,11 +59,6 @@
                         </div>
                     </div>
                 </section>
-{{--            @foreach($takes as $take)--}}
-{{--            @foreach($take->course->classes as $class)--}}
-{{--                {{$class->time}}--}}
-{{--            @endforeach--}}
-{{--            @endforeach--}}
                 <!-- 顯示在瀏覽器上的文字 -->
                 <table BORDER="2" align=center>
                     <h1>課表</h1>
@@ -411,10 +406,7 @@
                         @endforeach
                         @endforeach</td>
                     </tr>
-
-
                 </table>
-
 
             </div>
         </div>
