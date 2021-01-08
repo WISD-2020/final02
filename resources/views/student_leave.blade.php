@@ -34,22 +34,33 @@
                 <!-- Tables -->
 
                 <!-- Forms -->
-                <form action="" method="POST" role="form">
+                <form action="{{route('student.period.show')}}" method="get">
+                    {{ csrf_field() }}
+                    <label for="course">課程：</label>
+                    <select id="course" name="course" class="form-control" style="width:150px;display:inline">
+                        <option value="" disabled selected hidden>請選擇課程</option>
+                        @foreach($takes as $take)
+                            <option value="{{$take->course->id}}">{{$take->course->name}}</option>
+                        @endforeach
+                    </select>
+                    <button type="submit" name="search" style="display:inline">查詢</button>
+                </form>
+
+                <form action="{{route('student.store')}}" method="POST" role="form">
                     @method('POST')
                     @csrf
                     <div>
-                        <label for="title">請假日期：</label>
-                        <input id="date" name="date" type="date">
+                        <label for="leave_date">請假日期：</label>
+                        <input id="leave_date" name="leave_date" type="date">
                     </div>
                     <div class="form-group">
-                        <label for="name">星期-節次：</label>
-                        <textarea id="name" name="name" class="form-control"></textarea>
-
-                        <label for="name">課程：</label>
-                        <select id="type" name="type" class="form-control" style="width:150px">
-                            @foreach($takes as $take)
-                                <option value="0">{{$take->course->name}}</option>
-                            @endforeach
+                        <label for="period">星期-節次：</label>
+                        <select id="period" name="period" class="form-control" style="width:150px">
+                            @if (isset($classes))
+                                @foreach($classes as $class)
+                                    <option value="{{$class->time}}">{{$class->time}}</option>
+                                @endforeach
+                            @endif
                         </select>
 
                         <label for="type">請假類型：</label>
@@ -59,8 +70,8 @@
                             <option value="公假">公假</option>
                         </select>
 
-                        <label for="name">原因：</label>
-                        <textarea id="name" name="name" class="form-control"></textarea>
+                        <label for="reason">原因：</label>
+                        <textarea id="reason" name="reason" class="form-control"></textarea>
                     </div>
                     <input  type="submit" name="submit" value="送出">
                 </form>
@@ -84,7 +95,7 @@
                     <ul>
                         <li><a href="/home">課表</a></li>
                         <li><a href="{{route('student.leave')}}">申請請假</a></li>
-                        <li><a href="{{route('teacher.record')}}">課程出缺席狀況</a></li>
+                        <li><a href="{{route('student.record')}}">課程出缺席狀況</a></li>
                         <li><a href="https://www.ncut.edu.tw/">學校首頁</a></li>
                         <li><a href="{{route('user.logout')}}">登出</a></li>
                     </ul>

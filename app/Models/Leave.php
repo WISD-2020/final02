@@ -12,6 +12,7 @@ class Leave extends Model
     /**
      * @var mixed
      */
+    protected $fillable = ['student_id', 'teacher_id', 'classes_id', 'reason', 'type', 'leave_date', 'review_date', 'result'];
 
     public function student()
     {

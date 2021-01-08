@@ -41,7 +41,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="section-heading">
-                                    <h2>Tables</h2>
+                                    <h2>出席</h2>
                                 </div>
                                 <div class="default-table">
                                     <table>

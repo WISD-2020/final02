@@ -72,13 +72,15 @@
                     </tr>
                     <tr>
                         <td>第一節</td>
-                        <td>@foreach($takes as $take)
+                        <td>
+                            @foreach($takes as $take)
                             @foreach($take->course->classes as $class)
                             @if($class->time=='1-1')
                             {{$class->course->name}}</br>
                             老師:{{$class->course->teacher->name}}</br>
                             地點:{{$class->course->location}}
                             @endif
+                            @break
                             @endforeach
                             @endforeach
                         </td>
@@ -425,9 +427,9 @@
                 <!-- Menu -->
                 <nav id="menu">
                     <ul>
-                        <li><a href="index">點名</a></li>
-                        <li><a href="student/leave">申請請假</a></li>
-                        <li><a href="teacher_record.blade.php">課程出缺席狀況</a></li>
+                        <li><a href="/home">課表</a></li>
+                        <li><a href="{{route('student.leave')}}">申請請假</a></li>
+                        <li><a href="{{route('student.record')}}">課程出缺席狀況</a></li>
                         <li><a href="https://www.ncut.edu.tw/">學校首頁</a></li>
                         <li><a href="{{route('user.logout')}}">登出</a></li>
                     </ul>
