@@ -33,15 +33,13 @@
                         </div>
                     </div>
                 </div>
-            <?php $i=0 ; ?>
-            <?php $k=0 ; ?>
                 <!-- Tables -->
                 <section class="tables">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="section-heading">
-                                    <h2>出席</h2>
+                                    <h2>學生申請</h2>
                                 </div>
                                 <div class="default-table">
                                     <table>
@@ -59,10 +57,6 @@
                                         <tbody>
                                         @foreach($leaves as $leave)
                                             @if($leave->result=='未審核')
-                                                <?php $i=$i+1; ?>
-                                                @if($i>=(($id-1)*2+1))
-                                                    <?php $k=$k+1;?>
-                                                    @if($k<=2)
                                         <tr>
                                             <td>{{$leave->leave_date}}</td>
                                                 <td>{{$leave->classes->time}}</td>
@@ -78,31 +72,11 @@
                                                     不通過</a>
                                             </td>
                                         </tr>
-                                                    @endif
-                                                @endif
+
                                         @endif
                                         @endforeach
                                         </tbody>
                                     </table>
-                                    <ul class="table-pagination">
-                                        <?php  $i=ceil($i/2); ?>
-                                        <ul class="table-pagination">
-                                            @if($id-1>=1)
-                                                <li><a href="{{route('teacher.leave', ['id'=>$id-1])}}">前一頁</a></li>
-                                            @endif
-                                            @if($id-1<1)
-                                                <li><a href="{{route('teacher.leave', ['id'=>1])}}">前一頁</a></li>
-                                            @endif
-                                            @for($j=1;$j<=$i;$j++)
-                                                <li><a href="{{route('teacher.leave', ['id'=>$j])}}">{{$j}}</a></li>
-                                            @endfor
-                                            @if($id+1<=$i)
-                                                <li><a href="{{route('teacher.leave', ['id'=>$id+1])}}">下一頁</a></li>
-                                            @endif
-                                            @if($id+1>$i)
-                                                <li><a href="{{route('teacher.leave', ['id'=>$i])}}">下一頁</a></li>
-                                            @endif
-                                    </ul>
                                 </div>
 
                             </div>
