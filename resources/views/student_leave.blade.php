@@ -43,16 +43,16 @@
                             <option value="{{$take->course->id}}">{{$take->course->name}}</option>
                         @endforeach
                     </select>
+                    <div>
+                        <label for="leave_date">請假日期：</label>
+                        <input id="leave_date" name="leave_date" type="date">
+                    </div>
                     <button type="submit" name="search" style="display:inline">查詢</button>
                 </form>
 
                 <form action="{{route('student.store')}}" method="POST" role="form">
                     @method('POST')
                     @csrf
-                    <div>
-                        <label for="leave_date">請假日期：</label>
-                        <input id="leave_date" name="leave_date" type="date">
-                    </div>
                     <div class="form-group">
                         <label for="period">星期-節次：</label>
                         <select id="period" name="period" class="form-control" style="width:150px">
@@ -69,10 +69,13 @@
                             <option value="事假">事假</option>
                             <option value="公假">公假</option>
                         </select>
-
                         <label for="reason">原因：</label>
                         <textarea id="reason" name="reason" class="form-control"></textarea>
                     </div>
+                    @if(isset($date))
+                    <input type="hidden" name="date" value={{$date}}>
+                    <input type="hidden" name="course" value={{$course->name}}>
+                    @endif
                     <input  type="submit" name="submit" value="送出">
                 </form>
             </div>
