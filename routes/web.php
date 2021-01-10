@@ -35,6 +35,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('teacher/leave/fail/{leave}
 Route::middleware(['auth:sanctum', 'verified'])->get('teacher/attend/{course}/{time}', [\App\Http\Controllers\TeacherController::class, 'attend'])->name('teacher.attend');
 
    //學生
+//學生點名
+Route::middleware(['auth:sanctum', 'verified'])->get('student/attend/{course}/{time}', [\App\Http\Controllers\StudentController::class, 'attend'])->name('student.attend');
 //學生請假頁面
 Route::middleware(['auth:sanctum', 'verified'])->get('student/leave', [\App\Http\Controllers\StudentController::class, 'leave'])->name('student.leave');
 //學生請假查詢
