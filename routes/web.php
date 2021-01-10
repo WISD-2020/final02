@@ -29,6 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('teacher/leave', [\App\Http
 Route::middleware(['auth:sanctum', 'verified'])->get('student/leave', [\App\Http\Controllers\StudentController::class, 'leave'])->name('student.leave');
 Route::middleware(['auth:sanctum', 'verified'])->get('student/record', [\App\Http\Controllers\StudentController::class, 'record'])->name('student.record');
 Route::middleware(['auth:sanctum', 'verified'])->post('student/leave/apply', [\App\Http\Controllers\StudentController::class, 'store'])->name('student.store');
+Route::middleware(['auth:sanctum', 'verified'])->get('student/attend/{course}/{time}', [\App\Http\Controllers\StudentController::class, 'attend'])->name('student.attend');
 Route::middleware(['auth:sanctum', 'verified'])->get('student/period/search',[\App\Http\Controllers\StudentController::class, 'period_show'])->name('student.period.show');
 
 

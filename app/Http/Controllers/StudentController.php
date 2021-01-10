@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Attend;
 use App\Models\Course;
 use App\Models\Leave;
 use Illuminate\Http\Request;
@@ -12,16 +12,18 @@ class StudentController extends Controller
 {
     public function leave()
     {
-        $takes = Auth::user()->students->takes;
+        $student = Auth::user()->students;
+        $takes = $student->takes;
 
         return view('student_leave', [
+            'students' => $student,
             'takes' => $takes,
         ]);
     }
 
     public function record()
     {
-        $student=Auth::user()->students;
+        $student = Auth::user()->students;
         return view('student_record', [
             'students' => $student,
         ]);
@@ -29,10 +31,12 @@ class StudentController extends Controller
 
     public function period_show(Request $request)
     {
-        $course=Course::where('id',$request->course)->first();
-        $classes=$course->classes;
+        $student = Auth::user()->students;
+        $course = Course::where('id', $request->course)->first();
+        $classes = $course->classes;
         $takes = Auth::user()->students->takes;
         return view('student_leave', [
+            'students' => $student,
             'classes' => $classes,
             'takes' => $takes,
         ]);
@@ -40,7 +44,7 @@ class StudentController extends Controller
 
     public function store(Request $request)
     {
-        $student=Auth::user()->students;
+        $student = Auth::user()->students;
         $take = $student->takes;
 
         $leaves = new Leave;
@@ -54,5 +58,14 @@ class StudentController extends Controller
         $leaves->save();
 
         return redirect()->route('student.record');
+    }
+
+    public function attend($course, $time)
+    {
+        $student = Auth::user()->students;
+        $course = Course::where('name', $course)->first();
+        $class = $course->classes->where('time', '=', $time)->where('date', '=', date("Y-m-d"))->first();
+        Attend::where('classes_id', '=', $class->id)->where('student_id', '=', $student->id)->delete();
+        return redirect(route('user'));
     }
 }
