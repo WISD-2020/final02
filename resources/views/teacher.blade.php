@@ -16,18 +16,28 @@
                   </div>
               </header>
             <!-- Top Image -->
+              @if ($message = Session::get('error'))
+                  <div class="alert alert-danger alert-block">
+                      <button type="button" class="close" data-dismiss="alert">×</button>
+                      <strong>{{ $message }}</strong>
+                  </div>
+              @endif
+              @if ($message = Session::get('success'))
+                  <div class="alert alert-success alert-block">
+                      <button type="button" class="close" data-dismiss="alert">×</button>
+                      <strong>{{ $message }}</strong>
+                  </div>
+              @endif
             <section class="top-image">
               <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-12">
                     <img src="{{asset('images/main-banner.jpg')}}" alt="">
                     <div class="down-content">
-
                         </br></br>
                         <h1>{{$teacher->name}}你好~</h1></br>
                       <h2>個人資料</h2>
                       </br>
-
                           <TABLE CELLPADDING=2 border=4 BORDERCOLORLIGHT="#FFD0D0" BORDERCOLORDARK="#A425B1">
 
                               <TR><TH>教師編號</TH><TD>{{$teacher->account}}</TD><TH>電子郵件</TH><TD>{{Auth::user()->email}}</TD>
