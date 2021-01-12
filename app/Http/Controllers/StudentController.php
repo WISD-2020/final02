@@ -78,7 +78,10 @@ class StudentController extends Controller
         $student = Auth::user()->students;
         $course = Course::where('name', $course)->first();
         $class = $course->classes->where('time', '=', $time)->where('date', '=', date("Y-m-d"))->first();
+        if(!isset($class)) {
+            return redirect(route('user'))->with('error', '無法點名!');
+        }
         Attend::where('classes_id', '=', $class->id)->where('student_id', '=', $student->id)->delete();
-        return redirect(route('user'));
+        return redirect(route('user'))->with('success', '開啟點名成功!');
     }
 }
