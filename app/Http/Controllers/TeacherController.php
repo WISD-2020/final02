@@ -27,14 +27,17 @@ class TeacherController extends Controller
     {
         $course = Auth::user()->teachers->courses->where('name', '=', $course)->first();
         $class = $course->classes->where('time', '=', $time)->where('date', '=', date("Y-m-d"))->first();
-        foreach ($course->takes as $take) {
+        if(!isset($class)) {
+            return redirect(route('user'))->with('error', '無法點名!');
+        }
+            foreach ($course->takes as $take) {
             $attend = new Attend;
             $attend->student_id = $take->student->id;
             $attend->classes_id = $class->id;
             $attend->truant = '曠課';
             $attend->save();
         }
-        return redirect(route('user'));
+        return redirect(route('user'))->with('success', '開啟點名成功!');
     }
 
     public function leave()
