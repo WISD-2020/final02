@@ -1,3 +1,4 @@
+
 # 系統擷取畫面
 ## 老師
 ### 老師首頁
@@ -34,6 +35,7 @@
 * 老師可以審核學生的請假是否給予通過
 # 系統的主要功能
 ## 老師　[3A732038 巫宇哲](http://github.com/3A732038)
+
 * //老師查看出缺席頁面
   * Route::middleware(['auth:sanctum', 'verified'])->get('teacher/record', [\App\Http\Controllers\TeacherController::class, 'record'])->name('teacher.record');
 * //老師查看某個課堂出缺席狀況
@@ -70,15 +72,28 @@
 * 老師和學生的所有頁面- [RAMAYANA FREE CSS TEMPLATE](https://www.free-css.com/free-css-templates/page260/ramayana)
 # 系統使用者測試帳號
 ## 老師
+# 初始專案與DB負責的同學
+* 初始專案、資料庫及資料表建立 [3A732038 巫宇哲](http://github.com/3A732038)
+* 資料表關連 [3A732007 蕭凱夫](http://github.com/3A732007)
+# 額外使用的樣板
+* 老師和學生的所有頁面- [RAMAYANA FREE CSS TEMPLATE](https://www.free-css.com/free-css-templates/page260/ramayana)
+# 系統使用者測試帳號
+## 老師
 * 帳號： a@gmail.com
 * 密碼： aaaaaaaa
 * 帳號： b@gmail.com
 * 密碼： bbbbbbbb
+<<<<<<< HEAD
 ## 學生
 * 帳號： c@gmail.com
 * 密碼： cccccccc
 * 帳號： d@gmail.com
 * 密碼： dddddddd
+<<<<<<< HEAD
+# 測試檔案存放位置
+* final資料夾底下的final02.sql
+# 系統開發人員與工作分配
+## [3A732038 巫宇哲](http://github.com/3A732038)
 # 測試檔案存放位置
 * final資料夾底下的final02.sql
 # 系統開發人員與工作分配
