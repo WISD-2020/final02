@@ -85,11 +85,7 @@
 * 帳號： d@gmail.com
 * 密碼： dddddddd
 # 測試檔案存放位置
-* final資料夾底下的final02.sql
-# 系統開發人員與工作分配
-## [3A732038 巫宇哲](http://github.com/3A732038)
-# 測試檔案存放位置
-* final資料夾底下的final02.sql
+* final02資料夾底下的final02.sql
 # 系統開發人員與工作分配
 ## [3A732038 巫宇哲](http://github.com/3A732038)
 老師
