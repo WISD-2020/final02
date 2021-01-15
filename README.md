@@ -70,12 +70,9 @@
 * 資料表關連 [3A732007 蕭凱夫](http://github.com/3A732007)
 # 額外使用的樣板
 * 老師和學生的所有頁面- [RAMAYANA FREE CSS TEMPLATE](https://www.free-css.com/free-css-templates/page260/ramayana)
-## 老師
 # 初始專案與DB負責的同學
 * 初始專案、資料庫及資料表建立 [3A732038 巫宇哲](http://github.com/3A732038)
 * 資料表關連 [3A732007 蕭凱夫](http://github.com/3A732007)
-# 額外使用的樣板
-* 老師和學生的所有頁面- [RAMAYANA FREE CSS TEMPLATE](https://www.free-css.com/free-css-templates/page260/ramayana)
 # 系統使用者測試帳號
 ## 老師
 * 帳號： a@gmail.com
