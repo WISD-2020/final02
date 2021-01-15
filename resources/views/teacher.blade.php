@@ -454,7 +454,7 @@
                   </section>
           </div>
           </div>
-        @include('layouts.sidebar')
+        @include('layouts.teacher_sidebar')
     </div>
     </body>
 @endsection
