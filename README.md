@@ -69,6 +69,21 @@
 ![image](https://raw.githubusercontent.com/WISD-2020/final02/master/public/images/ERD.png)
 # 關聯式綱要圖
 ![image](https://raw.githubusercontent.com/WISD-2020/final02/master/public/images/%E9%97%9C%E8%81%AF%E5%BC%8F%E7%B6%B1%E8%A6%81%E5%9C%96.png)
+# 資料表欄位設計
+* 學生
+![image](https://raw.githubusercontent.com/WISD-2020/final02/master/public/images/student.png)
+* 修課
+![image](https://raw.githubusercontent.com/WISD-2020/final02/master/public/images/takes.jpg)
+* 老師
+![image](https://raw.githubusercontent.com/WISD-2020/final02/master/public/images/teachers.jpg)
+* 請假
+![image](https://raw.githubusercontent.com/WISD-2020/final02/master/public/images/leaves.jpg)
+* 課程
+![image](https://raw.githubusercontent.com/WISD-2020/final02/master/public/images/courses.jpg)
+* 課堂
+![image](https://raw.githubusercontent.com/WISD-2020/final02/master/public/images/classes.jpg)
+* 出席
+![image](https://raw.githubusercontent.com/WISD-2020/final02/master/public/images/attends.jpg)
 # 初始專案與DB負責的同學
 * 初始專案、資料庫及資料表建立 [3A732038 巫宇哲](http://github.com/3A732038)
 * 資料表關連 [3A732007 蕭凱夫](http://github.com/3A732007)
